@@ -25,13 +25,13 @@
 
     <div class="container">
         <main class="content">
-        @if($event->image)
-                    <img src="{{ asset('storage/images/' . $event->image) }}" alt="Event Image"
-                                style="width: 318px; height: 216px; object-fit: cover;" class="background-image">
-                @endif
             <!-- <img src="{{ asset($event->image) }}" alt="{{ $event->name }}" class="background-image"> -->
             <div class="image-container">
             <!-- <img src="/asset/BgLanding 3.jpg" alt="{{ $event->name }}" class="background-image"> -->
+            @if($event->image)
+                    <img src="{{ asset('storage/images/' . $event->image) }}" alt="Event Image"
+                                style="width: 318px; height: 216px; object-fit: cover;" class="background-image">
+                @endif
             <div class="gradient-overlay"></div>
             <div class="title">
                 <h1>{{ $event->name }}</h1>
