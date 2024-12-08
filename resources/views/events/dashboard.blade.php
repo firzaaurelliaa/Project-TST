@@ -17,14 +17,14 @@
 
         @foreach($events as $event)
             <div class="card" onclick="window.location.href='{{ route('events.detail', ['id' => $event->id]) }}'">
-                <!-- @if($event->image) -->
-                <img src="{{ asset('asset/BgLanding 3.jpg') }}" alt="{{ $event->name }}"
-                style="width: 318px; height: 216px; object-fit: cover;" class="image">
-                    <!-- <img src="{{ asset('storage/images/' . $event->image) }}" alt="Event Image"
-                                style="width: 318px; height: 216px; object-fit: cover;" class="image"> -->
+                @if($event->image)
+                <!-- <img src="{{ asset('asset/BgLanding 3.jpg') }}" alt="{{ $event->name }}" -->
+                <!-- style="width: 318px; height: 216px; object-fit: cover;" class="image"> -->
+                    <img src="{{ asset('storage/images/' . $event->image) }}" alt="Event Image"
+                                style="width: 318px; height: 216px; object-fit: cover;" class="image">
                     <!-- <img src="/asset/BgLanding 3.jpg" alt="{{ $event->name }}"
                         style="width: 318px; height: 216px; object-fit: cover;" class="background-image"> -->
-                <!-- @endif -->
+                @endif
 
                 <h1 class="name">{{ $event->name }}</h1>
                 <p class="desc">{{ \Illuminate\Support\Str::limit($event->description, 190, '...') }}</p>
