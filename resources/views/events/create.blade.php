@@ -11,6 +11,8 @@
 <body>
 <img src="{{ asset('img/titleadd.svg') }}" alt="" class="foto">
 
+    <h1 class="judul">Tambah Event</h1>
+
     <div class="formcreate">
     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

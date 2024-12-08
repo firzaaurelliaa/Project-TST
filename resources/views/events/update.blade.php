@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Event</title>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/update-event.css') }}">
+    <link rel="icon" href="{{ asset('img/logoo.png') }}" type="image/png">
+    <x-navbar />
+    <title>Update Event</title>
 </head>
 <body>
-    <form action="{{ route('events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    @method('PUT') <!-- Menggunakan method PUT -->
-    
-    <label for="name">Event Name:</label>
-    <input type="text" name="name" id="name" value="{{ old('name', $event->name) }}" required><br>
+    <!-- <img src="{{ asset('img/edit.svg') }}" alt="Update Event Title" class="title-image"> -->
 
-    <label for="description">Description:</label>
-    <textarea name="description" id="description" required>{{ old('description', $event->description) }}</textarea><br>
+    <h1>Edit Event</h1>
 
-    <label for="event_date">Event Date:</label>
-    <input type="date" name="event_date" id="event_date" value="{{ old('event_date', $event->event_date) }}" required><br>
+    <div class="form-container">
+        <form action="{{ route('events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT') 
 
-    <label for="image">Image (Optional):</label>
-    <input type="file" name="image" id="image"><br>
+            <!-- Nama Event -->
+            <div class="form-group">
+                <label for="name">Nama Event:</label>
+                <input type="text" name="name" id="name" value="{{ old('name', $event->name) }}" required>
+            </div>
 
-    <button type="submit">Update Event</button>
+            <!-- Deskripsi -->
+            <div class="form-group">
+                <label for="description">Deskripsi:</label>
+                <textarea name="description" id="description" required>{{ old('description', $event->description) }}</textarea>
+            </div>
+
+            <!-- Tanggal dan Foto -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="event_date">Tanggal Event:</label>
+                    <input type="date" name="event_date" id="event_date" value="{{ old('event_date', $event->event_date) }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Upload Foto (Optional):</label>
+                    <input type="file" name="image" id="image" accept="image/*">
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn btn-primary">Update Event</button>
+                <form action="{{ route('events.destroy', $event->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus event ini?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus Event</button>
+                </form>
+            </div>
     </form>
 
-    <form action="{{ route('events.destroy', $event->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this event?');">
-    @csrf
-    @method('DELETE')
-    <button type="submit" style="background: none; border: none; color: red; font-size: 24px; cursor: pointer; ">
-        <i class="fa fa-trash"></i>
-    </button>
-</form>
+       
 
-
+         <button type="button" onclick="window.location.href='{{ route('events.list') }}'" class="btn btn-secondary">Kembali</button>
+    </div>
 </body>
 </html>
