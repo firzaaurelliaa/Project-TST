@@ -17,8 +17,10 @@ class CreateEventsTable extends Migration
         $table->id();
         $table->string('name');
         $table->text('description');
-      $table->dateTime('event_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+        $table->dateTime('event_date')->default(DB::raw('CURRENT_TIMESTAMP'));
         $table->timestamps();
+        $table->string('image')->nullable();
+
     });
 }
 
