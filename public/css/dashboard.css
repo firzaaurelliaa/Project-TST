@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+
+.title {
+    margin: 40px 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.image {
+    width: 360px;
+    height: 243px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.navbar {
+    height: 140px;
+    background-color: #ECF5FF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    align-items: center; 
+    padding: 0 30px; 
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+}
+
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover; 
+}
+
+.brand-name {
+    font-size: 24px; 
+    font-weight: bold;
+    color: #333;
+}
+
+
+body {
+    /* padding: 20px; */
+    background-color: #ECF5FF;
+}
+
+.foto {
+    width: 360px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* buat 3 kolom dengan lebar sama */
+    gap: 48px;
+    justify-items: center;
+}
+
+.card {
+    background: linear-gradient(to top, #F2F8FF 0%, #E2EDF9 54%, #d0e3f8 100%);
+    width: 360px;
+    /* height: 200px; */
+    border: 1px solid #bcdaf3;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out;
+    position: relative; /* Untuk mengatur posisi tanggal di dalam card */
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* nama event */
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #252525;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* deskripsi event */
+.desc {
+    font-size: 14px;
+    color: #929292;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+}
+
+
+/* tanggal */
+.date {
+    width: 120px;
+    height: 35px;
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    bottom: 0px; 
+    right: 0px; 
+    background: linear-gradient(to right, #A0D7FF 0%, #6BB6ED 38%, #3E9ADD 100%);
+    border: 1px solid #bcdaf3;
+    border-radius: 18px 0 10px 0px;
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+}
+
+.gelombang {
+    width: 100%;
+}
+
+/* 
+.footer {
+    position: relative;
+    background-color: #3E9ADD;
+    height: 50%;
+    color: white;
+    text-align: center;
+    padding-top: 120px; 
+    padding-bottom: 50px;
+}
+
+.footer .wave {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.footer .wave img {
+    width: 100%; 
+    height: auto;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2; 
+}
+
+.footer-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.footer-content .social-icons {
+    margin: 15px 0;
+}
+
+.footer-content .social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+}
+
+.footer-content .social-icons a img {
+    width: 100%;
+    height: auto;
+}
+
+.footer-content .copyright {
+    font-size: 12px;
+    margin-top: 20px;
+    color: #cfcfcf;
+} */
+
+
+.card-container .card {
+    display: block; /* Pastikan link terlihat sebagai block */
+    pointer-events: auto; /* Aktifkan interaksi klik */
+    cursor: pointer;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
